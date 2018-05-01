@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{ partial "header.html" . }}
+</head>
+<body>
+  {{ partial "masthead.html" . }}
+  <main class="flex flex-wrap pa2">
+    <div class="w-100">
+      <article class="f5 f4-l sans-serif mid-gray lh-copy">
+        <h1 class="f2 f1-l sans-serif mid-gray">{{ .Site.Params.Title }}</h1>
+        {{ .Site.Params.Description }}
+      </article>
+    </div>
+  </main>
+  {{ partial "footer.html" . }}
+</body>
+</html>

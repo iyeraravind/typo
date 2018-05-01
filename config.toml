@@ -1,0 +1,17 @@
+baseURL = "https://iyeraravind.github.io/"
+languageCode = "en-us"
+theme = "typo"
+MetaDataFormat = "toml"
+title = "Typo Theme"
+pygmentsStyle = "friendly"
+pygmentsCodefences = "true"
+pygmentsOptions = ["linenos=table"]
+
+[params]
+  AuthorName = "Aravind Iyer"
+  GitHubUser = "iyeraravind"
+  Description = "A theme that mostly aims to get out of the way!"
+  Title = "Typo"
+
+[permalinks]
+  post = "/:sections/:title/"

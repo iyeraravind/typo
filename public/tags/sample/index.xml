@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sample on Typo Theme</title>
+    <link>https://iyeraravind.github.io/tags/sample/</link>
+    <description>Recent content in Sample on Typo Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://iyeraravind.github.io/tags/sample/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Jekyll Drafts with Shareable Links</title>
+      <link>https://iyeraravind.github.io/blog/jekyll-drafts-shareable-links/</link>
+      <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://iyeraravind.github.io/blog/jekyll-drafts-shareable-links/</guid>
+      <description>Drafts are a work in progress.  Drafts are posts that are not yet ready to be published. Jekyll has built-in support for drafts. This is how it works.
+Create a _drafts folder at your site&amp;rsquo;s root, create a new post in that folder, and run jekyll serve with the --drafts switch. Your draft turns up at the top of your recent posts (or wherever you have set up new posts to appear on your site).</description>
+    </item>
+    
+    <item>
+      <title>Jekyll Drafts with Shareable Links</title>
+      <link>https://iyeraravind.github.io/blog/re-jekyll-drafts-shareable-links/</link>
+      <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://iyeraravind.github.io/blog/re-jekyll-drafts-shareable-links/</guid>
+      <description>Drafts are a work in progress.  Drafts are posts that are not yet ready to be published. Jekyll has built-in support for drafts. This is how it works.
+Create a _drafts folder at your site&amp;rsquo;s root, create a new post in that folder, and run jekyll serve with the --drafts switch. Your draft turns up at the top of your recent posts (or wherever you have set up new posts to appear on your site).</description>
+    </item>
+    
+    <item>
+      <title>Igniting the Flame</title>
+      <link>https://iyeraravind.github.io/blog/igniting-the-flame/</link>
+      <pubDate>Fri, 19 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://iyeraravind.github.io/blog/igniting-the-flame/</guid>
+      <description>How I discovered the Mahavishnu Orchestra   Listening to Mahavishnu Orchestra for the first time, while reading the liner notes! (artwork courtesy of Aravind Iyer) Pro-Tip: Click the play button  above, choose your streaming service, and listen while you read!  It is generally agreed that experiences are more valuable to people than possessions1. From that perspective, a musical performance is something unique and wonderful. Attending one can be an experience to remember, and yet it can be bottled into a record which a music lover can possess and use to re-live the experience.</description>
+    </item>
+    
+    <item>
+      <title>Igniting the Flame</title>
+      <link>https://iyeraravind.github.io/blog/re-igniting-the-flame/</link>
+      <pubDate>Fri, 19 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://iyeraravind.github.io/blog/re-igniting-the-flame/</guid>
+      <description>How I discovered the Mahavishnu Orchestra   Listening to Mahavishnu Orchestra for the first time, while reading the liner notes! (artwork courtesy of Aravind Iyer) Pro-Tip: Click the play button  above, choose your streaming service, and listen while you read!  It is generally agreed that experiences are more valuable to people than possessions1. From that perspective, a musical performance is something unique and wonderful. Attending one can be an experience to remember, and yet it can be bottled into a record which a music lover can possess and use to re-live the experience.</description>
+    </item>
+    
+  </channel>
+</rss>

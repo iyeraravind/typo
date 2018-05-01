@@ -1,0 +1,8 @@
+a {
+  text-decoration: none;
+}
+
+a:focus, a:hover {
+  transition: opacity .15s ease-in;
+  text-decoration: underline;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{ partial "header.html" . }}
+</head>
+<body>
+  {{ partial "masthead.html" . }}
+  <main class="flex flex-wrap pa2">
+    {{ partial "leftaside.html" . }}
+    <div class="w-100 w-70-m w-60-l pl2-m ph2-l">
+      <article class="f5 f4-l sans-serif mid-gray lh-copy">
+        <h1 class="f3 f2-l sans-serif mid-gray">{{ .Title }}</h1>
+        {{ .Content }}
+      </article>
+      {{ if eq .Params.comments "true" }}
+        {{ partial "comments.html" . }}
+      {{ end }}
+    </div>
+    {{ partial "rightaside.html" . }}
+  </main>
+  {{ partial "footer.html" . }}
+</body>
+</html>

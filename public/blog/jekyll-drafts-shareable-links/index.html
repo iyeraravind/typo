@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Jekyll Drafts with Shareable Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/tachyons.min.css">
+  <link rel="stylesheet" href="/css/custom.css">
+
+</head>
+<body>
+  <nav class="db dt-l w-100 bb b--light-gray pa3 ph4-l">
+  <a class="db dtc-l v-mid mid-gray link dim w-100 w-25-l tc tl-l mb2 mb0-l" href="/" title="Home">
+    <img class="w1 h1 w2-l h2-l" alt="Website Logo" src="/images/typo-logo.svg">
+  </a>
+  <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+    
+    
+    
+    
+    
+    <a class="link dim mid-gray sans-serif f6 f5-l dib mr3 mr4-l" href="/blog/" title="Blog">Blog</a>
+    
+    
+    
+    <a class="link dim mid-gray sans-serif f6 f5-l dib mr3 mr4-l" href="/about/" title="About">About</a>
+    
+    
+    
+    <a class="link dim mid-gray sans-serif f6 f5-l dib mr3 mr4-l" href="/contact/" title="Contact">Contact</a>
+    
+    
+    
+    <a class="link dim mid-gray sans-serif f6 f5-l dib" href="/terms/" title="Terms of Use">Terms of Use</a>
+    
+    
+  </div>
+</nav>
+
+  <main class="flex flex-wrap pa2">
+    <aside class="w-100 w-30-m w-20-l pa2-m pa2-l self-start flex flex-wrap">
+  
+    
+      
+      
+        <div class="w3">
+          <img class="br2 w3" src="/images/profile.jpg">
+        </div>
+      
+      <div class="w-70 w-100-m w-100-l pa2 pa0-m pa0-l">
+        <h1 class="f4 f3-l sans-serif mid-gray">Aravind Iyer</h1>
+        <p class="f6 f5-l sans-serif mid-gray">A tech guy writing about music and life.</p>
+      </div>
+    
+  
+</aside>
+
+    <div class="w-100 w-70-m w-60-l pl2-m ph2-l">
+      <article class="f5 f4-l sans-serif mid-gray lh-copy">
+        <h1 class="f3 f2-l sans-serif mid-gray">Jekyll Drafts with Shareable Links</h1>
+        
+
+<figure class="centered">
+    <a href="/images/IMG_20170110_135335111-01.jpg">
+        <img src="/images/IMG_20170110_135335111-01-640.jpg" alt="Desk showing headphones, a laptop, a book and a pen" class="br2">
+    </a>
+    <figcaption class="f6 f5-l sans-serif gray">Drafts are a work in progress.</figcaption>
+</figure>
+
+
+<p>Drafts are posts that are not yet ready to be published. Jekyll has built-in support for <a href="https://jekyllrb.com/docs/drafts/">drafts</a>. This is how it works.</p>
+
+<p>Create a <code>_drafts</code> folder at your site&rsquo;s root, create a new post in that folder, and run <code>jekyll serve</code> with the <code>--drafts</code> switch. Your draft turns up at the top of your recent posts (or wherever you have set up new posts to appear on your site).</p>
+
+<h2 id="problems-and-possible-solutions">Problems and possible solutions</h2>
+
+<p>While this method is fine for locally previewing your drafts, what if you wanted to share a link to a friend or a co-worker, to ask for a review of a draft? Well, there are two problems with Jekyll drafts:</p>
+
+<ol>
+<li>If you host your Jekyll site on <a href="https://pages.github.com/">Github Pages</a>, then you cannot use the <code>--drafts</code> switch. If you host elsewhere, you may be able to use a custom build command which includes <code>--drafts</code>. Or you could pre-build your site with <code>--drafts</code> locally, and push it.</li>
+<li>Jekyll does not provide a page variable to determine if a page is a draft or not. You could add (say) <code>drafts: true</code> in the <a href="http://jekyllrb.com/docs/frontmatter/">YAML front matter</a> of the draft and use <code>page.drafts</code> to tailor your layout.</li>
+</ol>
+
+<p>A quick Internet search suggested two solutions for public drafts: one, which builds on <a href="http://hamishwillee.github.io/2014/06/11/public-drafts-in-jekyll/">Jekyll&rsquo;s tag or category feature</a> and two, which builds on <a href="https://bsn.io/2017/01/public-drafts-with-a-github-pages-blog">Jekyll&rsquo;s collection feature</a>.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>First I outlined my requirements:</p>
+
+<ol>
+<li>Publish drafts without using the <code>--drafts</code> switch.</li>
+<li>Exclude drafts from <code>sitemap.xml</code>, the site search index (I use <a href="https://www.algolia.com/">Algolia</a>), and indexing by robots.</li>
+<li>Exclude social sharing buttons, comments, related posts and links to next and previous posts from drafts.</li>
+<li>A link to a draft post must not change after it is published.</li>
+</ol>
+
+<p>I adapted the <a href="https://bsn.io/2017/01/public-drafts-with-a-github-pages-blog">latter solution</a> to meet these requirements. Here is how it works.</p>
+
+<h2 id="enable-drafts-as-a-collection">Enable drafts as a collection</h2>
+
+<p>First of all, to enable the <code>drafts</code> collection, I added the following to my <code>_config.yml</code>:</p>
+
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">collections:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>drafts:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>output:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">true</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Now, if I create posts in the <code>_drafts</code> folder at my site&rsquo;s root, they will be published without requiring the <code>--drafts</code> switch. That is because the <code>collections</code> specification named <code>drafts</code> overrides the default treatment of the <code>_drafts</code> folder.</p>
+
+<h2 id="set-up-defaults-for-drafts">Set up defaults for drafts</h2>
+
+<p>Next, I set the following front matter defaults to all posts under the <code>drafts</code> collection:</p>
+
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">defaults:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>scope:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>path:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span>type:<span style="color:#bbb"> </span>drafts<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>values:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>comments:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">false</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span>share:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">false</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span>related:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">false</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span>sitemap:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">false</span><span style="color:#bbb">  </span><span style="color:#60a0b0;font-style:italic">#To hide from sitemap.xml</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span>noindex:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">true</span><span style="color:#bbb">   </span><span style="color:#60a0b0;font-style:italic">#To hide from robots and crawlers</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>These defaults turn off commenting, social sharing buttons, related posts and inclusion in <code>sitemap.xml</code>. Next, I used the <code>page.noindex</code> variable to add a snippet in the header of each draft post as follows:</p>
+
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{% if page.noindex == true %}
+  &lt;<span style="color:#062873;font-weight:bold">meta</span> <span style="color:#4070a0">name</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;robots&#34;</span> <span style="color:#4070a0">content</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;noindex&#34;</span>&gt;
+{% endif %}</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>This prevents robots from indexing draft posts. To exclude <code>_drafts</code> from the site search index, I added the following (Algolia-specific setting) to the <code>_config.yml</code>.</p>
+
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">algolia:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>files_to_exclude:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>_drafts/<span style="color:#007020">*.markdown</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h2 id="maintaining-draft-links-after-publication">Maintaining draft links after publication</h2>
+
+<p>My posts use the following permalink format:</p>
+
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#bbb"> </span>permalink:<span style="color:#bbb"> </span>/:categories/:title/</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>I added the same permalink specification to the <code>drafts</code> collection as follows:</p>
+
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">collections:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>drafts:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>output:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">true</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span>permalink:<span style="color:#bbb"> </span>/:categories/:title/</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Now, if I do not change the categories and title of my post, then the permalink would not change on publication. When I am ready to publish, I simple move the file from <code>_drafts</code> to <code>_posts</code>. That&rsquo;s it!</p>
+
+<p>The reason this works lies in the way Jekyll treats files in <code>_posts</code> and files in collections (in our case, <code>_drafts</code>). Files in <code>_posts</code> are accessible in the variables <code>site.posts</code> and <code>site.categories</code>, but files in collections are not. But categories defined in a file, remain accessible as <code>page.categories</code> whether the file is in <code>_posts</code> or <code>_drafts</code>.</p>
+
+<p>That&rsquo;s why the link doesn&rsquo;t change on publication, but the file content appears in recent posts or a category index page, only when it is in <code>_posts</code> (and not when it is still in <code>_drafts</code>).</p>
+
+<p>That concludes how I set up Jekyll drafts with shareable links.</p>
+
+<div class="bg-washed-green f6 f5-l serif br3 pa2">
+  <strong>Feedback</strong>: Did you enjoy reading or think it can be improved? Don&rsquo;t forget to leave your thoughts in the comments section below! If you liked this article, please share it with your friends, and read a few more!
+</div>
+
+
+      </article>
+      
+        <div class="pa2 mt2">
+  <h1 class="f3 sans-serif mid-gray">Comments</h1>
+  <p class="f4 sans-serif mid-gray">User content area in the center</p>
+</div>
+
+      
+    </div>
+    <aside class="w-100 w-20-l self-end flex flex-wrap pa1-l">
+  
+    <div class="w-100">
+      <h1 class="f3 sans-serif mid-gray">Read Next</h1>
+    </div>
+    
+    
+      
+        <div class="w-50 w-33-m w-100-l f6 f5-l sans-serif mid-gray lh-copy pa2 pa1-m pa0-l">
+          <h1 class="f4 f3-l sans-serif mid-gray"><a href="/blog/re-jekyll-drafts-shareable-links/">Jekyll Drafts with Shareable Links</a></h1>
+          Jekyll drafts are good for local previews, but don&#39;t work for public …
+        </div>
+      
+        <div class="w-50 w-33-m w-100-l f6 f5-l sans-serif mid-gray lh-copy pa2 pa1-m pa0-l">
+          <h1 class="f4 f3-l sans-serif mid-gray"><a href="/blog/igniting-the-flame/">Igniting the Flame</a></h1>
+          It was the autumn of 2000. I popped the tape into my tape player. …
+        </div>
+      
+        <div class="w-50 w-33-m w-100-l f6 f5-l sans-serif mid-gray lh-copy pa2 pa1-m pa0-l">
+          <h1 class="f4 f3-l sans-serif mid-gray"><a href="/blog/re-igniting-the-flame/">Igniting the Flame</a></h1>
+          It was the autumn of 2000. I popped the tape into my tape player. …
+        </div>
+      
+    
+  
+</aside>
+
+  </main>
+  <footer class="fl w-100 pa2 bg-light-gray">
+  <p class="f5 sans-serif mid-gray">&copy; 2018 Typo Theme
+    ∙ Powered by <a href="https://gohugo.io/">Hugo</a> &amp;
+    <a href="https://iyeraravind.github.io/typo/">Typo</a></p>
+</footer>
+
+</body>
+</html>

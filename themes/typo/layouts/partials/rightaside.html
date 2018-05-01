@@ -1,0 +1,16 @@
+<aside class="w-100 w-20-l self-end flex flex-wrap pa1-l">
+  {{ if eq .Params.rightaside "true" }}
+    <div class="w-100">
+      <h1 class="f3 sans-serif mid-gray">Read Next</h1>
+    </div>
+    {{ $related := .Site.RegularPages.Related . | first 3 }}
+    {{ with $related }}
+      {{ range . }}
+        <div class="w-50 w-33-m w-100-l f6 f5-l sans-serif mid-gray lh-copy pa2 pa1-m pa0-l">
+          <h1 class="f4 f3-l sans-serif mid-gray"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+          {{ .Description | truncate 70 }}
+        </div>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</aside>

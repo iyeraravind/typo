@@ -1,0 +1,11 @@
+[[pages]]
+  title = "Blog"
+  path = "/post/"
+
+[[pages]]
+  title = "About"
+  path = "/about/"
+
+[[pages]]
+  title = "Contact"
+  path = "/contact/"

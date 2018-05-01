@@ -1,0 +1,16 @@
+<aside class="w-100 w-30-m w-20-l pa2-m pa2-l self-start flex flex-wrap">
+  {{ if eq .Params.leftaside "true" }}
+    {{ if .Params.author }}
+      {{ $author := index .Site.Data.authors .Params.author }}
+      {{ if $author.avatar }}
+        <div class="w3">
+          <img class="br2 w3" src="{{ $author.avatar }}">
+        </div>
+      {{ end }}
+      <div class="w-70 w-100-m w-100-l pa2 pa0-m pa0-l">
+        <h1 class="f4 f3-l sans-serif mid-gray">{{ $author.name }}</h1>
+        <p class="f6 f5-l sans-serif mid-gray">{{ $author.profile }}</p>
+      </div>
+    {{ end }}
+  {{ end }}
+</aside>
