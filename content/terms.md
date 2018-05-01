@@ -20,13 +20,26 @@ damages or injuries that may result from that action or from the display or use
 of this information.
 
 ### License
-All original content (e.g. articles, blog posts, illustrations, artwork, and
-photographs) available on [www.aravindiyer.com](https://www.aravindiyer.com) is
-released under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0
-International License](http://creativecommons.org/licenses/by-nc-sa/4.0/) unless
-otherwise noted. Basically this means you are free to copy, redistribute, remix,
-transform, and build on my work provided you do not use it for any commercial
-purpose without my prior written consent.
+The MIT License (MIT)
+
+Copyright (c) 2018 Aravind Iyer
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ### Credit
 It's nice to be given credit for your work, isn't it? If you are using any of my
