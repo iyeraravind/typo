@@ -6,6 +6,7 @@ title = "Typo Theme"
 pygmentsStyle = "friendly"
 pygmentsCodefences = "true"
 pygmentsOptions = ["linenos=table"]
+publishDir = "docs"
 
 [params]
   AuthorName = "Aravind Iyer"
