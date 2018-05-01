@@ -1,4 +1,4 @@
-baseURL = "https://iyeraravind.github.io/"
+baseURL = "https://iyeraravind.github.io/typo"
 languageCode = "en-us"
 theme = "typo"
 MetaDataFormat = "toml"

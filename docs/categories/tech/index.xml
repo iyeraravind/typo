@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tech on Typo Theme</title>
-    <link>https://iyeraravind.github.io/categories/tech/</link>
+    <link>https://iyeraravind.github.io/typo/categories/tech/</link>
     <description>Recent content in Tech on Typo Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 13 Apr 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://iyeraravind.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://iyeraravind.github.io/typo/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Jekyll Drafts with Shareable Links</title>
-      <link>https://iyeraravind.github.io/blog/jekyll-drafts-shareable-links/</link>
+      <link>https://iyeraravind.github.io/typo/blog/jekyll-drafts-shareable-links/</link>
       <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://iyeraravind.github.io/blog/jekyll-drafts-shareable-links/</guid>
+      <guid>https://iyeraravind.github.io/typo/blog/jekyll-drafts-shareable-links/</guid>
       <description>Drafts are a work in progress.  Drafts are posts that are not yet ready to be published. Jekyll has built-in support for drafts. This is how it works.
 Create a _drafts folder at your site&amp;rsquo;s root, create a new post in that folder, and run jekyll serve with the --drafts switch. Your draft turns up at the top of your recent posts (or wherever you have set up new posts to appear on your site).</description>
     </item>
     
     <item>
       <title>Jekyll Drafts with Shareable Links</title>
-      <link>https://iyeraravind.github.io/blog/re-jekyll-drafts-shareable-links/</link>
+      <link>https://iyeraravind.github.io/typo/blog/re-jekyll-drafts-shareable-links/</link>
       <pubDate>Fri, 13 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://iyeraravind.github.io/blog/re-jekyll-drafts-shareable-links/</guid>
+      <guid>https://iyeraravind.github.io/typo/blog/re-jekyll-drafts-shareable-links/</guid>
       <description>Drafts are a work in progress.  Drafts are posts that are not yet ready to be published. Jekyll has built-in support for drafts. This is how it works.
 Create a _drafts folder at your site&amp;rsquo;s root, create a new post in that folder, and run jekyll serve with the --drafts switch. Your draft turns up at the top of your recent posts (or wherever you have set up new posts to appear on your site).</description>
     </item>
