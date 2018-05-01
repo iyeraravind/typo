@@ -4,7 +4,7 @@
       {{ $author := index .Site.Data.authors .Params.author }}
       {{ if $author.avatar }}
         <div class="w3">
-          <img class="br2 w3" src="{{ $author.avatar }}">
+          <img class="br2 w3" src="{{ .Site.BaseURL }}{{ $author.avatar }}">
         </div>
       {{ end }}
       <div class="w-70 w-100-m w-100-l pa2 pa0-m pa0-l">
